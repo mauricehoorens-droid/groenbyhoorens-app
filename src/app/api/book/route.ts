@@ -57,7 +57,10 @@ export async function GET() {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { dateISO, dagdeel, naam, adres, email, telefoon, bericht } = body;
+    const { dateISO, dagdeel, naam, adres, email, telefoon, bericht, website } = body;
+
+    // Honeypot: echte bezoekers laten dit veld leeg; bots vullen het vaak in.
+    if (website) return NextResponse.json({ ok: true });
 
     if (!dateISO || !dagdeel || !naam || !adres || !email) {
       return NextResponse.json(
@@ -95,6 +98,9 @@ export async function POST(req: Request) {
       dagdeel,
     });
 
+    // Onraadbare annuleer-token, zodat enkel de klant zelf kan annuleren
+    const cancelToken = crypto.randomUUID();
+
     // Opslaan in database
     const { error } = await supabase.from("boekingen").insert({
       slot_start: slot.startUTC,
@@ -106,10 +112,11 @@ export async function POST(req: Request) {
       telefoon: telefoon || null,
       bericht: bericht || null,
       google_event_id: eventId,
+      cancel_token: cancelToken,
     });
     if (error) console.warn("DB-insert waarschuwing:", error.message);
 
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, cancelToken });
   } catch (e) {
     console.error("Boeking mislukt:", (e as Error).message);
     return NextResponse.json({ ok: false, error: "Er ging iets mis bij het boeken." }, { status: 500 });
