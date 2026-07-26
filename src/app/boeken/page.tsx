@@ -10,9 +10,10 @@ export default function Boeken() {
   const [dagen, setDagen] = useState<Dag[]>([]);
   const [laden, setLaden] = useState(true);
   const [gekozen, setGekozen] = useState<{ dateISO: string; dagdeel: string; label: string; dag: string } | null>(null);
-  const [form, setForm] = useState({ naam: "", adres: "", email: "", telefoon: "", bericht: "" });
+  const [form, setForm] = useState({ naam: "", adres: "", email: "", telefoon: "", bericht: "", website: "" });
   const [status, setStatus] = useState<"idle" | "bezig" | "klaar" | "fout">("idle");
   const [fout, setFout] = useState("");
+  const [cancelUrl, setCancelUrl] = useState("");
 
   useEffect(() => {
     fetch("/api/book")
@@ -35,6 +36,7 @@ export default function Boeken() {
       });
       const d = await r.json();
       if (!r.ok || !d.ok) throw new Error(d.error || "Er ging iets mis.");
+      if (d.cancelToken) setCancelUrl(`${window.location.origin}/annuleren?token=${d.cancelToken}`);
       setStatus("klaar");
     } catch (err) {
       setFout((err as Error).message);
@@ -56,6 +58,12 @@ export default function Boeken() {
           <div style={{ background: "#e8f0e9", border: `1px solid ${mid}`, borderRadius: 12, padding: "28px 24px" }}>
             <h2 style={{ fontFamily: "'Playfair Display',serif", color: groen, fontSize: 24, marginBottom: 8 }}>Afspraak bevestigd ✓</h2>
             <p style={{ color: "#3d5442" }}>Bedankt, {form.naam}. Ik heb <strong>{gekozen?.dag}</strong> — {gekozen?.label} ingepland en kom langs op {form.adres}. U hoort van mij als er iets wijzigt.</p>
+            {cancelUrl && (
+              <p style={{ color: "#3d5442", marginTop: 14, fontSize: 14 }}>
+                Toch niet nodig? U kunt de afspraak zelf annuleren via deze persoonlijke link (bewaar hem goed):<br />
+                <a href={cancelUrl} style={{ color: "#2d6e47", wordBreak: "break-all" }}>{cancelUrl}</a>
+              </p>
+            )}
           </div>
         ) : (
           <>
@@ -102,6 +110,8 @@ export default function Boeken() {
             {/* Stap 2: gegevens */}
             <h2 style={{ fontFamily: "'Playfair Display',serif", color: groen, fontSize: 20, margin: "8px 0 14px" }}>2. Uw gegevens</h2>
             <form onSubmit={verstuur} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              {/* Honeypot tegen bots — echte bezoekers zien/gebruiken dit niet */}
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={form.website} onChange={(e) => setForm({ ...form, website: e.target.value })} style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} />
               <Veld label="Uw naam *" value={form.naam} onChange={(v) => setForm({ ...form, naam: v })} required />
               <Veld label="Adres van de tuin *" value={form.adres} onChange={(v) => setForm({ ...form, adres: v })} required placeholder="Straat en nummer, postcode, gemeente" />
               <Veld label="E-mail *" type="email" value={form.email} onChange={(v) => setForm({ ...form, email: v })} required />
