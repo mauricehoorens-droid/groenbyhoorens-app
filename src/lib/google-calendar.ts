@@ -70,3 +70,9 @@ export async function createEvent(params: {
   });
   return res.data.id as string;
 }
+
+/** Verwijdert een afspraak-event uit de Google-agenda (bij annulatie). */
+export async function deleteEvent(eventId: string) {
+  const calendar = google.calendar({ version: "v3", auth: getAuth() });
+  await calendar.events.delete({ calendarId: CALENDAR_ID, eventId });
+}
