@@ -4,11 +4,14 @@ import { google } from "googleapis";
 // Voorkeur: GOOGLE_SERVICE_ACCOUNT_B64 = de volledige JSON-sleutel als base64
 // (geen newline-problemen). Fallback: losse GOOGLE_CLIENT_EMAIL + GOOGLE_PRIVATE_KEY.
 function getCreds(): { email: string; key: string } {
-  const b64 = process.env.GOOGLE_SERVICE_ACCOUNT_B64;
-  if (b64 && b64.trim()) {
-    const json = JSON.parse(
-      Buffer.from(b64.replace(/\s/g, ""), "base64").toString("utf8")
-    );
+  const raw = process.env.GOOGLE_SERVICE_ACCOUNT_B64;
+  if (raw && raw.trim()) {
+    const t = raw.trim();
+    // Accepteer zowel de rauwe JSON (begint met "{") als een base64-versie ervan
+    const jsonStr = t.startsWith("{")
+      ? t
+      : Buffer.from(t.replace(/\s/g, ""), "base64").toString("utf8");
+    const json = JSON.parse(jsonStr);
     const key = String(json.private_key || "");
     // Veilige diagnostiek (geen geheimen): welke route + of de sleutel geldig oogt
     console.log(
