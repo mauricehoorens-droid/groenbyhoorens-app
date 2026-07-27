@@ -107,7 +107,7 @@ export default function Home() {
       </div>
     </div>
     <div className="card fu">
-      <img className="card-img" src="/img/borders.jpg" alt="Bloeiende border langs een gesnoeide haag" id="card3-img" />
+      <img className="card-img" src="/img/borders.jpg" alt="Verse laag boomschors klaar om te leggen" id="card3-img" />
       <div className="card-body">
         <div className="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
         <h3 className="card-name">Schors leggen</h3>
@@ -175,12 +175,12 @@ export default function Home() {
     <h2 className="section-title">Werk van de voorbije maanden</h2>
   </div>
   <div className="galerij-grid">
-    <div className="gi wide"><img src="/img/galerij-1.jpg" id="g1" alt="Ruim gazon met zicht op het terras" loading="lazy" /></div>
-    <div className="gi"><img src="/img/galerij-2.jpg" id="g2" alt="Gazon tot tegen de rand van het zwembad" loading="lazy" /></div>
-    <div className="gi"><img src="/img/galerij-3.jpg" id="g3" alt="Gemaaid gazon langs een donkere haag" loading="lazy" /></div>
-    <div className="gi"><img src="/img/galerij-4.jpg" id="g4" alt="Laurierhaag op hoogte gesnoeid" loading="lazy" /></div>
-    <div className="gi"><img src="/img/galerij-5.jpg" id="g5" alt="Zijtuin met pad en haag" loading="lazy" /></div>
-    <div className="gi wide"><img src="/img/galerij-6.jpg" id="g6" alt="Smalle tuin met haag en gazon" loading="lazy" /></div>
+    <div className="gi wide"><img src="/img/galerij-1.jpg" id="g1" alt="Strak aangelegd terras met siergrassen en geschoren hagen" loading="lazy" /></div>
+    <div className="gi"><img src="/img/galerij-2.jpg" id="g2" alt="Strak geschoren beukenhaag langs het gazon" loading="lazy" /></div>
+    <div className="gi"><img src="/img/galerij-3.jpg" id="g3" alt="Bloeiende borders langs een gemaaid gazon" loading="lazy" /></div>
+    <div className="gi"><img src="/img/galerij-4.jpg" id="g4" alt="Aanleg van een border naast het terras" loading="lazy" /></div>
+    <div className="gi"><img src="/img/galerij-5.jpg" id="g5" alt="Op hoogte gesnoeide haag in de avondzon" loading="lazy" /></div>
+    <div className="gi wide"><img src="/img/galerij-6.jpg" id="g6" alt="Ruim onderhouden gazon met volgroeide bomen" loading="lazy" /></div>
   </div>
 </section>
 
