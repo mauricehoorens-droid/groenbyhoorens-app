@@ -1,10 +1,31 @@
 import { google } from "googleapis";
 
-// Service-account authenticatie. De private key staat in .env.local
-// (GOOGLE_PRIVATE_KEY) met echte newlines als \n — die zetten we hier terug om.
+// Authenticatie via een service account.
+// Voorkeur: GOOGLE_SERVICE_ACCOUNT_B64 = de volledige JSON-sleutel als base64
+// (geen newline-problemen). Fallback: losse GOOGLE_CLIENT_EMAIL + GOOGLE_PRIVATE_KEY.
+function getCreds(): { email: string; key: string } {
+  const b64 = process.env.GOOGLE_SERVICE_ACCOUNT_B64;
+  if (b64 && b64.trim()) {
+    const json = JSON.parse(
+      Buffer.from(b64.replace(/\s/g, ""), "base64").toString("utf8")
+    );
+    const key = String(json.private_key || "");
+    // Veilige diagnostiek (geen geheimen): welke route + of de sleutel geldig oogt
+    console.log(
+      "AUTH via B64 | email:",
+      json.client_email,
+      "| keyStartsWithBEGIN:",
+      key.startsWith("-----BEGIN")
+    );
+    return { email: json.client_email, key };
+  }
+  const key = (process.env.GOOGLE_PRIVATE_KEY || "").replace(/\\n/g, "\n").replace(/\r/g, "");
+  console.log("AUTH via losse vars | keyStartsWithBEGIN:", key.startsWith("-----BEGIN"));
+  return { email: process.env.GOOGLE_CLIENT_EMAIL as string, key };
+}
+
 function getAuth() {
-  const email = process.env.GOOGLE_CLIENT_EMAIL as string;
-  const key = (process.env.GOOGLE_PRIVATE_KEY as string)?.replace(/\\n/g, "\n");
+  const { email, key } = getCreds();
   return new google.auth.JWT({
     email,
     key,
@@ -12,7 +33,7 @@ function getAuth() {
   });
 }
 
-const CALENDAR_ID = process.env.GOOGLE_CALENDAR_ID as string; // bv. groenbyhoorens@gmail.com
+const CALENDAR_ID = process.env.GOOGLE_CALENDAR_ID as string; // bv. mauricehoorens@gmail.com
 
 /** Geeft de bezette periodes terug uit de Google-agenda tussen twee tijdstippen. */
 export async function getBusy(timeMinISO: string, timeMaxISO: string) {
@@ -31,7 +52,7 @@ export async function getBusy(timeMinISO: string, timeMaxISO: string) {
 
 /** Maakt een afspraak-event aan in de Google-agenda. Geeft het event-id terug. */
 export async function createEvent(params: {
-  startISO: string; // lokale ISO zonder offset, bv. 2026-07-27T08:00:00
+  startISO: string;
   endISO: string;
   naam: string;
   adres: string;
