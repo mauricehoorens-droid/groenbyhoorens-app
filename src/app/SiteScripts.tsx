@@ -20,7 +20,23 @@ const GBH = {
   searchQuery: 'Groen By Hoorens, Oost-Vlaanderen, België',
   maxReviews:  6,
   minRating:   4,
-  cacheHours:  12
+  cacheHours:  12,
+  /* Vaste reviews die meteen getoond worden zolang er geen Google API-sleutel
+     is ingevuld. Nieuwe reviews kun je hier onderaan de lijst bijzetten en
+     'total' + 'rating' aanpassen. */
+  seed: {
+    rating: 5,
+    total: 1,
+    mapsUri: 'https://maps.google.com/?cid=9432449784224368385',
+    reviews: [
+      {
+        author: 'Annelies Decrame',
+        rating: 5,
+        when:   'juli 2026',
+        text:   'Heel beleefde jongen! Ik ben ook zeer tevreden over hoe mijn hagen geschoren zijn, en proper opgeruimd!! Chapeau voor deze jonge man.'
+      }
+    ]
+  }
 };
 
 /* ── NAV & ANIMATIES ── */
@@ -212,6 +228,11 @@ window.gbhInitReviews = function () {
 
 (function loadMaps() {
   if (!GBH.apiKey || GBH.apiKey.indexOf('VUL_HIER') === 0) {
+    /* Geen API-sleutel: toon de vaste reviews uit GBH.seed. */
+    if (GBH.seed && GBH.seed.reviews && GBH.seed.reviews.length) {
+      renderReviews(GBH.seed);
+      return;
+    }
     rvFail('Geen API-sleutel ingevuld. Zet je sleutel in GBH.apiKey bovenaan het script.');
     rvState.textContent = 'Er staan nog geen reviews online. Bent u klant geweest? Een korte review helpt mij enorm.';
     return;
