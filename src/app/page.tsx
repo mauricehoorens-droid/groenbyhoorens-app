@@ -27,7 +27,7 @@ export default function Home() {
   <div className="hero-left">
     <p className="hero-eyebrow">Tuinonderhoud in Oost-Vlaanderen</p>
     <h1 className="hero-title">Uw tuin in<br/><em>goede handen</em></h1>
-    <p className="hero-intro">Ik doe elke tuin zelf, van het eerste bezoek tot het opruimen achteraf. Geen wisselende ploegen, geen verrassingen op de factuur.</p>
+    <p className="hero-intro">Ik doe elke tuin zelf, van het eerste bezoek tot het opruimen achteraf.</p>
 
     <a className="hero-rating" id="hero-rating" href="#reviews">
       <span className="stars" id="hero-stars"></span>
@@ -77,8 +77,8 @@ export default function Home() {
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
       <span>Student Bedrijfsmanagement</span>
     </div>
-    <p className="body-text">Ik ben Maurice Hoorens. Ik studeer bedrijfsmanagement en daarnaast onderhoud ik tuinen. Begonnen bij mensen uit de buurt, en van het een kwam het ander.</p>
-    <p className="body-text">Ik blijf bewust in Oost-Vlaanderen werken. Zo ken ik de tuinen waar ik kom en weet ik wat er het volgende seizoen staat aan te komen. U belt mij, u krijgt mij, en de prijs spreken we op voorhand af.</p>
+    <p className="body-text">Ik ben Maurice Hoorens. Ik studeer bedrijfsmanagement en daarnaast onderhoud ik tuinen.</p>
+    <p className="body-text">Ik blijf bewust in Oost-Vlaanderen werken. Zo ken ik de tuinen waar ik kom en weet ik wat er het volgende seizoen staat aan te komen.</p>
     <p className="sig">Maurice Hoorens</p>
   </div>
 </section>
@@ -189,7 +189,7 @@ export default function Home() {
   <div className="wg-content fu">
     <p className="wg-eyebrow">Waar ik actief ben</p>
     <h2 className="wg-title">Actief in<br/>Oost-Vlaanderen</h2>
-    <p className="wg-text">Ik werk in de streek rond Brakel en Zottegem, en verder in Oost-Vlaanderen als het te combineren valt. Zo sta ik er snel als er iets is. Niet zeker of u in mijn buurt valt? Stuur een bericht, ik zeg het eerlijk.</p>
+    <p className="wg-text">Ik werk in de streek rond Brakel en Zottegem, en verder in Oost-Vlaanderen als het te combineren valt. Zo sta ik er snel als er iets is. Niet zeker of u in mijn buurt valt? Stuur me gerust een berichtje of bel me even op.</p>
     <div className="wg-tags">
       <span className="wg-tag">Brakel</span>
       <span className="wg-tag">Lierde</span>
@@ -226,7 +226,7 @@ export default function Home() {
         <span className="wi-num">02</span>
         <div className="wi-text">
           <h4>U krijgt altijd mij</h4>
-          <p>Geen onbekend gezicht dat plots voor de deur staat. Ik weet waar de kraan hangt en welke haag vorig jaar te kort ging.</p>
+          <p>Geen onbekend gezicht dat plots voor de deur staat.</p>
         </div>
       </li>
       <li className="wi">
@@ -239,8 +239,8 @@ export default function Home() {
       <li className="wi">
         <span className="wi-num">04</span>
         <div className="wi-text">
-          <h4>De prijs ligt op voorhand vast</h4>
-          <p>Ik kom eerst kijken en zeg dan wat het kost. Loopt het uit omdat ik me misrekend heb, dan is dat mijn probleem, niet het uwe.</p>
+          <h4>Ik kom op voorhand eens langs als u dat wenst</h4>
+          <p>Ik kom eerst kijken en zeg dan wat het kost.</p>
         </div>
       </li>
     </ul>
