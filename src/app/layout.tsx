@@ -7,8 +7,13 @@ export const metadata: Metadata = {
     "Tuinonderhoud, snoeiwerk en schors leggen in Oost-Vlaanderen. Ik doe elke tuin zelf, met een prijs die op voorhand vastligt.",
   themeColor: "#1a4a2e",
   icons: {
-    icon: "/logo/favicon-32-v2.png",
-    apple: "/logo/favicon-v2.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo/favicon-96.png", type: "image/png", sizes: "96x96" },
+      { url: "/logo/favicon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/logo/favicon-192.png",
   },
   openGraph: {
     title: "Groen By Hoorens",
