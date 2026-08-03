@@ -1,11 +1,42 @@
 import type { Metadata } from "next";
+import { Playfair_Display, Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-display",
+  display: "swap",
+});
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-sans",
+  display: "swap",
+});
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Groen By Hoorens | Tuinonderhoud in Oost-Vlaanderen",
+  title: {
+    default: "Groen By Hoorens — tuinonderhoud, snoeiwerk & aanplanting",
+    template: "%s | Groen By Hoorens",
+  },
   description:
-    "Tuinonderhoud, snoeiwerk en schors leggen in Oost-Vlaanderen. Ik doe elke tuin zelf, met een prijs die op voorhand vastligt.",
-  themeColor: "#1a4a2e",
+    "Professioneel tuinonderhoud in Brakel en omstreken. Onderhoud, snoeiwerk, borders en schors — met oog voor detail. Plan eenvoudig een afspraak online.",
+  openGraph: {
+    title: "Groen By Hoorens",
+    description: "Professioneel tuinonderhoud in Brakel en omstreken.",
+    siteName: "Groen By Hoorens",
+    locale: "nl_BE",
+    type: "website",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -15,31 +46,16 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/logo/favicon-192.png",
   },
-  openGraph: {
-    title: "Groen By Hoorens",
-    description:
-      "Tuinonderhoud, snoeiwerk en schors leggen in Oost-Vlaanderen.",
-    locale: "nl_BE",
-    type: "website",
-  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="nl">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700;900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>{children}</body>
+    <html lang="nl" className={`${playfair.variable} ${inter.variable} ${poppins.variable}`}>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
