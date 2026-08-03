@@ -25,7 +25,7 @@ export default function Boeken() {
 
   async function verstuur(e: React.FormEvent) {
     e.preventDefault();
-    if (!gekozen) return;
+    if (!gekozen || form.website) return;
     setStatus("bezig");
     setFout("");
     try {
@@ -44,59 +44,54 @@ export default function Boeken() {
     }
   }
 
-  const groen = "#1a4a2e";
-  const mid = "#2d6e47";
-
   return (
-    <main style={{ background: "#faf7f2", minHeight: "100vh", fontFamily: "'Lato',sans-serif", color: "#1c2b1e" }}>
-      <div style={{ maxWidth: 760, margin: "0 auto", padding: "56px 24px 96px" }}>
-        <Link href="/" style={{ color: mid, fontWeight: 700, fontSize: 13, letterSpacing: ".08em", textTransform: "uppercase", textDecoration: "none" }}>&larr; Terug naar de site</Link>
-        <h1 style={{ fontFamily: "'Playfair Display',serif", fontWeight: 900, fontSize: "clamp(30px,5vw,44px)", color: groen, margin: "16px 0 8px" }}>Plan uw tuinwerken</h1>
-        <p style={{ color: "#3d5442", marginBottom: 32 }}>Kies een voormiddag of namiddag die u past. Ik bevestig de afspraak meteen in mijn agenda en kom op het afgesproken moment langs.</p>
+    <section style={{ padding: "150px 0 110px" }}>
+      <div className="wrap-narrow">
+        <Link href="/" className="link-underline" style={{ color: "var(--color-groen-mid)", fontSize: 13, letterSpacing: ".08em", textTransform: "uppercase" }}>← Terug naar de site</Link>
+        <p className="eyebrow" style={{ margin: "26px 0 14px" }}>Plan uw tuinwerken</p>
+        <h1 className="display-lg" style={{ color: "var(--color-groen)" }}>Kies een moment dat u past</h1>
+        <p className="lead" style={{ marginTop: 18 }}>
+          Kies een voormiddag (8–12u) of namiddag (12–16u). Ik bevestig de afspraak
+          meteen in mijn agenda en kom op het afgesproken moment langs.
+        </p>
 
         {status === "klaar" ? (
-          <div style={{ background: "#e8f0e9", border: `1px solid ${mid}`, borderRadius: 12, padding: "28px 24px" }}>
-            <h2 style={{ fontFamily: "'Playfair Display',serif", color: groen, fontSize: 24, marginBottom: 8 }}>Afspraak bevestigd ✓</h2>
-            <p style={{ color: "#3d5442" }}>Bedankt, {form.naam}. Ik heb <strong>{gekozen?.dag}</strong> — {gekozen?.label} ingepland en kom langs op {form.adres}. U hoort van mij als er iets wijzigt.</p>
+          <div style={{ background: "var(--color-wit)", border: "1px solid var(--color-groen-mid)", borderRadius: 6, padding: "30px", marginTop: 34 }}>
+            <h2 className="display-md" style={{ color: "var(--color-groen)", fontSize: 26 }}>Afspraak bevestigd ✓</h2>
+            <p style={{ color: "#3a463b", marginTop: 10 }}>
+              Bedankt, {form.naam}. Ik heb <strong>{gekozen?.dag}</strong> — {gekozen?.label} ingepland
+              en kom langs op {form.adres}.
+            </p>
             {cancelUrl && (
-              <p style={{ color: "#3d5442", marginTop: 14, fontSize: 14 }}>
-                Toch niet nodig? U kunt de afspraak zelf annuleren via deze persoonlijke link (bewaar hem goed):<br />
-                <a href={cancelUrl} style={{ color: "#2d6e47", wordBreak: "break-all" }}>{cancelUrl}</a>
+              <p style={{ color: "#3a463b", marginTop: 16, fontSize: 14 }}>
+                Toch niet nodig? U kunt zelf annuleren via deze persoonlijke link (bewaar hem goed):<br />
+                <a href={cancelUrl} className="link-underline" style={{ color: "var(--color-groen-mid)", wordBreak: "break-all" }}>{cancelUrl}</a>
               </p>
             )}
           </div>
         ) : (
           <>
-            {/* Stap 1: moment kiezen */}
-            <h2 style={{ fontFamily: "'Playfair Display',serif", color: groen, fontSize: 20, margin: "8px 0 14px" }}>1. Kies een moment</h2>
+            <h2 className="display-md" style={{ color: "var(--color-groen)", fontSize: 22, margin: "40px 0 16px" }}>1. Kies een moment</h2>
             {laden ? (
-              <p style={{ color: "#3d5442" }}>Beschikbare momenten laden…</p>
+              <p style={{ color: "#3a463b" }}>Beschikbare momenten laden…</p>
             ) : dagen.length === 0 ? (
-              <p style={{ color: "#3d5442" }}>Er zijn momenteel geen vrije momenten. Neem gerust contact op via de site.</p>
+              <p style={{ color: "#3a463b" }}>Er zijn momenteel geen vrije momenten. Neem gerust contact op via de site.</p>
             ) : (
-              <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 32 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 36 }}>
                 {dagen.map((dag) => (
                   <div key={dag.dateISO}>
-                    <div style={{ fontWeight: 700, textTransform: "capitalize", marginBottom: 6 }}>{dag.dag}</div>
+                    <div style={{ fontWeight: 600, textTransform: "capitalize", marginBottom: 8 }}>{dag.dag}</div>
                     <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
                       {dag.opties.map((o) => {
                         const actief = gekozen?.dateISO === dag.dateISO && gekozen?.dagdeel === o.dagdeel;
                         return (
-                          <button
-                            key={o.dagdeel}
-                            type="button"
+                          <button key={o.dagdeel} type="button"
                             onClick={() => setGekozen({ dateISO: dag.dateISO, dagdeel: o.dagdeel, label: o.label, dag: dag.dag })}
                             style={{
-                              cursor: "pointer",
-                              border: `1.5px solid ${actief ? groen : "#cdbfa6"}`,
-                              background: actief ? groen : "#fff",
-                              color: actief ? "#fff" : "#1c2b1e",
-                              borderRadius: 10,
-                              padding: "10px 16px",
-                              fontSize: 14,
-                              fontWeight: 700,
-                            }}
-                          >
+                              cursor: "pointer", border: `1.5px solid ${actief ? "var(--color-groen)" : "rgba(23,32,26,0.22)"}`,
+                              background: actief ? "var(--color-groen)" : "var(--color-wit)", color: actief ? "var(--color-creme)" : "var(--color-inkt)",
+                              borderRadius: 999, padding: "11px 20px", fontSize: 14, fontWeight: 600, fontFamily: "inherit",
+                            }}>
                             {o.label}
                           </button>
                         );
@@ -107,71 +102,36 @@ export default function Boeken() {
               </div>
             )}
 
-            {/* Stap 2: gegevens */}
-            <h2 style={{ fontFamily: "'Playfair Display',serif", color: groen, fontSize: 20, margin: "8px 0 14px" }}>2. Uw gegevens</h2>
-            <form onSubmit={verstuur} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              {/* Honeypot tegen bots — echte bezoekers zien/gebruiken dit niet */}
-              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={form.website} onChange={(e) => setForm({ ...form, website: e.target.value })} style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} />
-              <Veld label="Uw naam *" value={form.naam} onChange={(v) => setForm({ ...form, naam: v })} required />
-              <Veld label="Adres van de tuin *" value={form.adres} onChange={(v) => setForm({ ...form, adres: v })} required placeholder="Straat en nummer, postcode, gemeente" />
-              <Veld label="E-mail *" type="email" value={form.email} onChange={(v) => setForm({ ...form, email: v })} required />
-              <Veld label="Telefoon" type="tel" value={form.telefoon} onChange={(v) => setForm({ ...form, telefoon: v })} />
-              <Veld label="Extra info (optioneel)" value={form.bericht} onChange={(v) => setForm({ ...form, bericht: v })} textarea placeholder="Wat zou er moeten gebeuren?" />
-
-              {status === "fout" && <p style={{ color: "#b3261e" }}>{fout}</p>}
-
-              <button
-                type="submit"
-                disabled={!gekozen || status === "bezig"}
-                style={{
-                  marginTop: 8,
-                  cursor: !gekozen || status === "bezig" ? "not-allowed" : "pointer",
-                  background: !gekozen ? "#9db3a3" : groen,
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: 10,
-                  padding: "14px 22px",
-                  fontSize: 15,
-                  fontWeight: 800,
-                  letterSpacing: ".02em",
-                }}
-              >
+            <h2 className="display-md" style={{ color: "var(--color-groen)", fontSize: 22, margin: "8px 0 16px" }}>2. Uw gegevens</h2>
+            <form onSubmit={verstuur} style={{ display: "grid", gap: 16 }}>
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true"
+                value={form.website} onChange={(e) => setForm({ ...form, website: e.target.value })}
+                style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} />
+              <label className="field">Uw naam *
+                <input required value={form.naam} onChange={(e) => setForm({ ...form, naam: e.target.value })} />
+              </label>
+              <label className="field">Adres van de tuin *
+                <input required placeholder="Straat en nummer, postcode, gemeente" value={form.adres} onChange={(e) => setForm({ ...form, adres: e.target.value })} />
+              </label>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                <label className="field">E-mail *
+                  <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
+                </label>
+                <label className="field">Telefoon
+                  <input type="tel" value={form.telefoon} onChange={(e) => setForm({ ...form, telefoon: e.target.value })} />
+                </label>
+              </div>
+              <label className="field">Extra info (optioneel)
+                <textarea rows={3} value={form.bericht} onChange={(e) => setForm({ ...form, bericht: e.target.value })} placeholder="Wat zou er moeten gebeuren?" />
+              </label>
+              {status === "fout" && <p style={{ color: "#b3261e", fontSize: 14 }}>{fout}</p>}
+              <button type="submit" className="btn" disabled={!gekozen || status === "bezig"} style={{ justifyContent: "center", background: !gekozen ? "#9db3a3" : undefined, borderColor: !gekozen ? "#9db3a3" : undefined }}>
                 {status === "bezig" ? "Bezig met inplannen…" : gekozen ? `Afspraak bevestigen — ${gekozen.dag}` : "Kies eerst een moment"}
               </button>
             </form>
           </>
         )}
       </div>
-    </main>
-  );
-}
-
-function Veld(props: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  type?: string;
-  required?: boolean;
-  placeholder?: string;
-  textarea?: boolean;
-}) {
-  const stijl: React.CSSProperties = {
-    border: "1.5px solid #cdbfa6",
-    borderRadius: 10,
-    padding: "11px 14px",
-    fontSize: 15,
-    fontFamily: "inherit",
-    background: "#fff",
-    width: "100%",
-  };
-  return (
-    <label style={{ display: "flex", flexDirection: "column", gap: 6, fontWeight: 700, fontSize: 14, color: "#3d5442" }}>
-      {props.label}
-      {props.textarea ? (
-        <textarea rows={3} value={props.value} placeholder={props.placeholder} onChange={(e) => props.onChange(e.target.value)} style={stijl} />
-      ) : (
-        <input type={props.type || "text"} value={props.value} required={props.required} placeholder={props.placeholder} onChange={(e) => props.onChange(e.target.value)} style={stijl} />
-      )}
-    </label>
+    </section>
   );
 }
