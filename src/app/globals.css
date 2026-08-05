@@ -34,7 +34,8 @@ img { display: block; max-width: 100%; }
 /* Layout helpers */
 .wrap { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 28px; }
 .wrap-narrow { width: 100%; max-width: 820px; margin: 0 auto; padding: 0 28px; }
-.section { padding: clamp(72px, 11vw, 150px) 0; }
+.section { padding: clamp(56px, 7vw, 104px) 0; }
+.two { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(26px, 5vw, 72px); align-items: start; }
 
 .eyebrow {
   font-family: var(--font-sans);
@@ -137,13 +138,26 @@ img { display: block; max-width: 100%; }
 .fade-up.vis { opacity: 1; transform: translateY(0); }
 
 /* Service cards met beeld */
-.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(23,32,26,0.12); border: 1px solid rgba(23,32,26,0.12); }
-.svc { background: var(--color-creme); display: flex; flex-direction: column; }
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(30px, 4vw, 56px); }
+.svc { display: flex; flex-direction: column; }
 .svc-img { aspect-ratio: 4/3; object-fit: cover; width: 100%; }
-.svc-body { padding: clamp(26px, 3vw, 40px); display: flex; flex-direction: column; flex: 1; }
-.svc-num { font-family: var(--font-display); color: var(--color-zand); font-size: 15px; }
-.svc-body h3 { font-size: clamp(22px, 2.4vw, 30px); color: var(--color-groen); margin: 6px 0 12px; }
+.svc-body { padding: 22px 2px 0; display: flex; flex-direction: column; flex: 1; }
+.svc-num { font-family: var(--font-display); color: var(--color-goud); font-size: 15px; }
+.svc-body h3 { font-size: clamp(22px, 2.4vw, 28px); color: var(--color-groen); margin: 6px 0 10px; }
 .svc-body p { color: #45513f; }
+
+/* Minimal reden-lijst (licht) */
+.reasons-light { display: grid; }
+.reason-l { display: flex; gap: 18px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid rgba(23,32,26,0.10); }
+.reason-l:last-child { border-bottom: none; }
+.reason-l .rn { font-family: var(--font-display); color: var(--color-goud); font-size: 17px; min-width: 34px; }
+.reason-l h4 { font-family: var(--font-display); font-size: 18px; color: var(--color-groen); margin-bottom: 3px; }
+.reason-l p { color: #45513f; font-size: 14.5px; line-height: 1.5; }
+/* Reden-lijst + tags op donkergroen (voor de gemixte secties) */
+.panel-groen .reason-l { border-color: rgba(255,255,255,0.15); }
+.panel-groen .reason-l h4 { color: var(--color-creme); }
+.panel-groen .reason-l p { color: var(--color-beige); }
+.panel-groen .tag { border-color: rgba(255,255,255,0.30); color: var(--color-creme); }
 
 /* Full-bleed editorial statement */
 .fullbleed { position: relative; min-height: 78vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--color-creme); overflow: hidden; }
@@ -194,6 +208,9 @@ img { display: block; max-width: 100%; }
   .svc-grid { grid-template-columns: 1fr; }
   .split { grid-template-columns: 1fr; }
   .rv-grid { grid-template-columns: 1fr; }
+  .two { grid-template-columns: 1fr; gap: 28px; }
+  .display-xl { font-size: clamp(34px, 10vw, 56px); }
+  .display-lg { font-size: clamp(27px, 8vw, 40px); }
   .nav { display: none; }
   .burger { display: block; }
   .nav.open { display: flex; position: fixed; inset: 84px 0 auto 0; flex-direction: column; background: var(--color-creme); padding: 24px 28px; gap: 20px; box-shadow: 0 12px 30px rgba(0,0,0,.12); }

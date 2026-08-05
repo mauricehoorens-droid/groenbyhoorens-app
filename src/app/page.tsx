@@ -71,12 +71,10 @@ export default function Home() {
       </section>
 
       {/* OVER MIJ */}
-      <section className="section" id="over" style={{ background: "var(--color-creme-2)" }}>
+      <section className="section" id="over">
         <div className="wrap split">
-          <Reveal style={{ position: "relative" }}>
+          <Reveal>
             <img className="split-img split-tall" src="/img/over-mij.jpg" alt="Terras met loungezetels en aangelegde border" />
-            <img src="/img/aan-het-werk.jpg" alt="Ladder en kruiwagen bij een klus in uitvoering"
-              style={{ position: "absolute", right: -14, bottom: -22, width: "46%", aspectRatio: "1/1", objectFit: "cover", border: "8px solid var(--color-creme-2)" }} />
           </Reveal>
           <Reveal delay={120}>
             <p className="eyebrow" style={{ marginBottom: 16 }}>Over mij</p>
@@ -95,20 +93,20 @@ export default function Home() {
         <img className="bg" src="/img/waarom.jpg" alt="Lange haag strak afgewerkt op hoogte" />
       </section>
 
-      {/* REDENEN */}
+      {/* REDENEN — clean lijst op groen */}
       <section className="section panel-groen">
-        <div className="wrap" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(28px,5vw,80px)", alignItems: "center" }}>
+        <div className="wrap two">
           <Reveal>
-            <p className="eyebrow" style={{ marginBottom: 16, color: "var(--color-zand)" }}>Waarom kiezen voor mij?</p>
-            <h2 className="display-lg">Waarom mensen<br /><em>mij terugvragen</em></h2>
+            <p className="eyebrow" style={{ marginBottom: 14 }}>Waarom kiezen voor mij?</p>
+            <h2 className="display-md">Waarom mensen<br /><em>mij terugvragen</em></h2>
           </Reveal>
-          <Reveal className="reasons" delay={120}>
+          <Reveal className="reasons-light" delay={120}>
             {redenen.map((r) => (
-              <div className="reason" key={r.num}>
-                <span className="reason-num">{r.num}</span>
+              <div className="reason-l" key={r.num}>
+                <span className="rn">{r.num}</span>
                 <div>
                   <h4>{r.titel}</h4>
-                  <p style={{ color: "var(--color-beige)" }}>{r.tekst}</p>
+                  <p>{r.tekst}</p>
                 </div>
               </div>
             ))}
@@ -135,14 +133,14 @@ export default function Home() {
       </section>
 
       {/* WERKGEBIED */}
-      <section className="section" style={{ background: "var(--color-creme-2)", paddingTop: 0 }}>
+      <section className="section panel-groen">
         <div className="wrap split">
           <Reveal delay={120} style={{ order: 2 }}>
             <img className="split-img split-tall" src="/img/werkgebied.jpg" alt="Tuin in Oost-Vlaanderen" loading="lazy" />
           </Reveal>
           <Reveal style={{ order: 1 }}>
             <p className="eyebrow" style={{ marginBottom: 16 }}>Waar ik actief ben</p>
-            <h2 className="display-lg" style={{ color: "var(--color-groen)" }}>Actief in <em>Oost-Vlaanderen</em></h2>
+            <h2 className="display-lg">Actief in <em>Oost-Vlaanderen</em></h2>
             <p className="lead" style={{ marginTop: 20 }}>
               Ik werk in de streek rond Brakel en Zottegem, en verder in Oost-Vlaanderen als het te
               combineren valt. Zo sta ik er snel als er iets is. Niet zeker of u in mijn buurt valt?
@@ -160,7 +158,7 @@ export default function Home() {
 
       {/* CONTACT — donkergroen */}
       <section className="section panel-groen" id="contact">
-        <div className="wrap" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(28px,5vw,72px)", alignItems: "start" }}>
+        <div className="wrap two">
           <Reveal>
             <p className="eyebrow" style={{ marginBottom: 16, color: "var(--color-zand)" }}>Neem contact op</p>
             <h2 className="display-lg">Een prijs <em>voor uw tuin</em></h2>
