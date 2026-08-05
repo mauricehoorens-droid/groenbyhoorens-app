@@ -4,6 +4,12 @@ import Reveal from "./Reveal";
 // Nieuwe Google-reviews kun je hier onderaan de lijst toevoegen.
 const REVIEWS = [
   {
+    author: "Wouter",
+    rating: 5,
+    when: "augustus 2026",
+    text: "Topservice! Jonge, gemotiveerde tuinman die zijn werk met veel zorg en enthousiasme uitvoert. Werkt netjes, is betrouwbaar en levert een prachtig resultaat. Zeker een aanrader!",
+  },
+  {
     author: "Annelies Decrame",
     rating: 5,
     when: "juli 2026",
@@ -11,7 +17,7 @@ const REVIEWS = [
   },
 ];
 const RATING = 5.0;
-const TOTAL = 1;
+const TOTAL = 2;
 const MAPS_URL = "https://maps.google.com/?cid=9432449784224368385";
 const REVIEW_URL = "https://g.page/r/CQFHZ34ay-aCEBM/review";
 
@@ -21,7 +27,7 @@ function Stars({ n }: { n: number }) {
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="section" style={{ background: "var(--color-creme-2)" }}>
+    <section id="reviews" className="section">
       <div className="wrap">
         <Reveal style={{ textAlign: "center", marginBottom: 46 }}>
           <p className="eyebrow" style={{ marginBottom: 16 }}>Reviews</p>
@@ -30,7 +36,7 @@ export default function Reviews() {
           </h2>
           <div style={{ display: "flex", gap: 12, alignItems: "center", justifyContent: "center", marginTop: 16 }}>
             <Stars n={Math.round(RATING)} />
-            <span style={{ color: "var(--color-muted)", fontSize: 14 }}>{RATING.toFixed(1).replace(".", ",")} · {TOTAL} Google-review</span>
+            <span style={{ color: "var(--color-muted)", fontSize: 14 }}>{RATING.toFixed(1).replace(".", ",")} · {TOTAL} Google-reviews</span>
           </div>
         </Reveal>
 
