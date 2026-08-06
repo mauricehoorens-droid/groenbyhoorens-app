@@ -17,7 +17,7 @@ const REVIEWS = [
   },
 ];
 const RATING = 5.0;
-const TOTAL = 2;
+const TOTAL = 3;
 const MAPS_URL = "https://maps.google.com/?cid=9432449784224368385";
 const REVIEW_URL = "https://g.page/r/CQFHZ34ay-aCEBM/review";
 
