@@ -71,7 +71,7 @@ export default function Header() {
               <path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.85c0-2.48 1.48-3.85 3.74-3.85 1.08 0 2.21.19 2.21.19v2.43h-1.25c-1.23 0-1.61.76-1.61 1.55V12h2.74l-.44 2.9h-2.3v7A10 10 0 0 0 22 12z" />
             </svg>
           </a>
-          <Link href="/boeken" className="btn" onClick={() => setOpen(false)} style={{ padding: "12px 22px" }}>
+          <Link href="/boeken" className="btn" onClick={() => setOpen(false)} style={{ padding: "12px 22px", color: "#fff" }}>
             Afspraak maken
           </Link>
         </nav>
