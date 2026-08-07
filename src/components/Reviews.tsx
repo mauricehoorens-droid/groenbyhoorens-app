@@ -4,6 +4,12 @@ import Reveal from "./Reveal";
 // Nieuwe Google-reviews kun je hier onderaan de lijst toevoegen.
 const REVIEWS = [
   {
+    author: "Matthias Dieltjens",
+    rating: 5,
+    when: "augustus 2026",
+    text: "Zeker een aanrader! Alles super netjes afgewerkt. Snelle service met goede communicatie!",
+  },
+  {
     author: "Wouter",
     rating: 5,
     when: "augustus 2026",
