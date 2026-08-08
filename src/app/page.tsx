@@ -127,10 +127,8 @@ export default function Home() {
             <div className="g-item col-4 ar-1-1"><img src="/img/galerij-3.jpg" alt="Bloeiende borders langs een gemaaid gazon" loading="lazy" /></div>
             <div className="g-item col-4 ar-1-1"><img src="/img/galerij-4.jpg" alt="Aanleg van een border naast het terras" loading="lazy" /></div>
             <div className="g-item col-4 ar-1-1"><img src="/img/galerij-5.jpg" alt="Op hoogte gesnoeide haag in de avondzon" loading="lazy" /></div>
-            <div className="g-item col-12 ar-16-10"><img src="/img/galerij-6.jpg" alt="Ruim onderhouden gazon met volgroeide bomen" loading="lazy" /></div>
-            <div className="g-item col-4 ar-1-1"><img src="/img/galerij-7.jpg" alt="Haag op hoogte snoeien bij een manege" loading="lazy" /></div>
-            <div className="g-item col-4 ar-1-1"><img src="/img/galerij-8.jpg" alt="Strak gesnoeide bolboom" loading="lazy" /></div>
-            <div className="g-item col-4 ar-1-1"><img src="/img/galerij-9.jpg" alt="Paarden op de wei achter een pas geschoren haag" loading="lazy" /></div>
+            <div className="g-item col-6 ar-16-10"><img src="/img/galerij-8.jpg" alt="Strak gesnoeide bolboom" loading="lazy" /></div>
+            <div className="g-item col-6 ar-16-10"><img src="/img/galerij-9.jpg" alt="Paarden op de wei achter een pas geschoren haag" loading="lazy" /></div>
             <div className="g-item col-12 ar-16-10"><img src="/img/galerij-10.jpg" alt="Luchtbeeld van het onderhouden domein" loading="lazy" /></div>
           </Reveal>
         </div>
@@ -140,7 +138,7 @@ export default function Home() {
       <section className="section panel-groen">
         <div className="wrap split">
           <Reveal delay={120} style={{ order: 2 }}>
-            <img className="split-img split-tall" src="/img/werkgebied.jpg" alt="Tuin in Oost-Vlaanderen" loading="lazy" />
+            <img className="split-img split-tall" src="/img/werkgebied.jpg" alt="Luchtbeeld van een onderhouden domein in Oost-Vlaanderen" loading="lazy" />
           </Reveal>
           <Reveal style={{ order: 1 }}>
             <p className="eyebrow" style={{ marginBottom: 16 }}>Waar ik actief ben</p>
