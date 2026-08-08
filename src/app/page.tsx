@@ -1,3 +1,4 @@
+// Galerij bijgewerkt: manege-werken, poolhouse + boompje verwijderd
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import Reviews from "@/components/Reviews";
