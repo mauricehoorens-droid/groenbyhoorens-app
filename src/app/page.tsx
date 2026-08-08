@@ -28,7 +28,7 @@ export default function Home() {
         <div className="hero-center">
           <Reveal style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <img className="hero-logo" src="/logo/logo-white.svg" alt="Groen By Hoorens" />
-            <p className="eyebrow" style={{ marginTop: 30, color: "#fff" }}>Tuinonderhoud in Oost-Vlaanderen</p>
+            <p className="eyebrow" style={{ marginTop: 30, color: "#fff" }}>Professioneel tuinonderhoud in Oost-Vlaanderen</p>
           </Reveal>
         </div>
         <a href="#over" className="scroll-hint">Ontdek ↓</a>
