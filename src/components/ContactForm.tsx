@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 
 export default function ContactForm({ dark = false }: { dark?: boolean }) {
   const [form, setForm] = useState({ naam: "", telefoon: "", email: "", dienst: "", bericht: "", website: "" });
@@ -22,6 +23,7 @@ export default function ContactForm({ dark = false }: { dark?: boolean }) {
       });
       const d = await r.json();
       if (!r.ok || !d.ok) throw new Error(d.error || "Er ging iets mis.");
+      track("contactformulier_verzonden", { dienst: form.dienst || "onbekend" });
       setStatus("klaar");
     } catch (err) {
       setFout((err as Error).message);
