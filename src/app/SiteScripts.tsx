@@ -26,9 +26,21 @@ const GBH = {
      'total' + 'rating' aanpassen. */
   seed: {
     rating: 5,
-    total: 1,
+    total: 3,
     mapsUri: 'https://maps.google.com/?cid=9432449784224368385',
     reviews: [
+      {
+        author: 'Matthias Dieltjens',
+        rating: 5,
+        when:   'augustus 2026',
+        text:   'Zeker een aanrader! Alles super netjes afgewerkt. Snelle service met goede communicatie!'
+      },
+      {
+        author: 'Wouter ‘Bouwdroger’',
+        rating: 5,
+        when:   'augustus 2026',
+        text:   'Topservice! Jonge, gemotiveerde tuinman die zijn werk met veel zorg en enthousiasme uitvoert. Werkt netjes, is betrouwbaar en levert een prachtig resultaat. Zeker een aanrader!'
+      },
       {
         author: 'Annelies Decrame',
         rating: 5,
