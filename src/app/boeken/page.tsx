@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { meet } from "@/lib/meten";
 
 interface Optie { dagdeel: string; label: string }
 interface Dag { dateISO: string; dag: string; opties: Optie[] }
@@ -37,6 +38,7 @@ export default function Boeken() {
       const d = await r.json();
       if (!r.ok || !d.ok) throw new Error(d.error || "Er ging iets mis.");
       if (d.cancelToken) setCancelUrl(`${window.location.origin}/annuleren?token=${d.cancelToken}`);
+      meet("Schedule", { content_name: gekozen.dagdeel });
       setStatus("klaar");
     } catch (err) {
       setFout((err as Error).message);

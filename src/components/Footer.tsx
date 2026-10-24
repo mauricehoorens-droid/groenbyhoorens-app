@@ -1,3 +1,5 @@
+import { CookieKnop } from "./Toestemming";
+
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
@@ -45,6 +47,8 @@ export default function Footer() {
           <a href="https://www.groenbyhoorens.be/algemene-voorwaarden" className="link-underline">Algemene voorwaarden</a>
           <span style={{ color: "var(--color-goud)" }}>·</span>
           <a href="https://www.groenbyhoorens.be/juridische-vermeldingen" className="link-underline">Juridische vermeldingen</a>
+          <span style={{ color: "var(--color-goud)" }}>·</span>
+          <CookieKnop />
         </p>
 
         <p style={{ fontSize: 13, color: "var(--color-beige)", opacity: 0.85 }}>Groen By Hoorens {year}</p>

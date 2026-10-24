@@ -26,8 +26,10 @@ export default function Page() {
         <p>Voor de werking van de website en boekingen doe ik beroep op: de hostingprovider, Calendly (afspraken) en Google Maps (het tonen van reviews). Deze partijen verwerken enkel de gegevens die nodig zijn voor hun dienst.</p>
         <h2 style={h2}>6. Uw rechten</h2>
         <p>U hebt het recht op inzage, verbetering, verwijdering en beperking van uw gegevens, en het recht om bezwaar te maken. Stuur hiervoor een e-mail naar <a href="mailto:groenbyhoorens@gmail.com">groenbyhoorens@gmail.com</a>. U kunt ook een klacht indienen bij de Gegevensbeschermingsautoriteit (www.gegevensbeschermingsautoriteit.be).</p>
-        <h2 style={h2}>7. Cookies</h2>
-        <p>Deze website plaatst geen tracking- of advertentiecookies. Voor het tonen van Google-reviews wordt lokale opslag in uw browser gebruikt om reviews tijdelijk te bewaren; dit deelt geen gegevens met derden voor reclame.</p>
+        <h2 style={h2} id="cookies">7. Cookies en statistieken</h2>
+        <p><strong>Noodzakelijk.</strong> Voor het tonen van Google-reviews wordt lokale opslag in uw browser gebruikt om reviews tijdelijk te bewaren. We onthouden ook uw cookiekeuze (6 maanden).</p>
+        <p><strong>Bezoekersaantallen.</strong> Via Vercel Web Analytics tellen we hoeveel mensen welke pagina bekijken. Dat gebeurt zonder cookies en zonder u te herkennen.</p>
+        <p><strong>Marketing (alleen met uw toestemming).</strong> De Meta-pixel meet of onze advertenties op Facebook en Instagram leiden tot een aanvraag of afspraak. Meta kan die gegevens koppelen aan uw Meta-account. U kiest zelf in de cookiebanner en kunt uw keuze altijd wijzigen via &quot;Cookie-instellingen&quot; onderaan elke pagina.</p>
       </div>
     </main>
   );

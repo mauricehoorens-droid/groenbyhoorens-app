@@ -4,6 +4,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Toestemming from "@/components/Toestemming";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -38,6 +39,11 @@ export const metadata: Metadata = {
     locale: "nl_BE",
     type: "website",
   },
+  /* Domeinverificatie voor Meta (bedrijfsportfolio Maurice Hoorens >
+     Merkveiligheid > Domeinen). Laten staan, anders vervalt de verificatie. */
+  verification: {
+    other: { "facebook-domain-verification": "ivzalmrc7x9viv2slaooflxm3mzjw3" },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -57,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <Analytics />
+        <Toestemming />
       </body>
     </html>
   );

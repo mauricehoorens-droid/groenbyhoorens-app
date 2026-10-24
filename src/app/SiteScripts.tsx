@@ -274,6 +274,7 @@ window.gbhInitReviews = function () {
         var r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
         if(!r.ok) throw new Error('fail');
         form.reset();
+        try{ (window as any).fbq && (window as any).fbq('track','Lead',{content_name:'contactformulier'}); }catch(_){}
         if(btn){btn.textContent='Verzonden ✓';}
       }catch(err){
         if(btn){btn.textContent='Er ging iets mis — mail me gerust';}

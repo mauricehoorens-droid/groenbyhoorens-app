@@ -216,3 +216,14 @@ img { display: block; max-width: 100%; }
   .nav.open { display: flex; position: fixed; inset: 84px 0 auto 0; flex-direction: column; background: var(--color-creme); padding: 24px 28px; gap: 20px; box-shadow: 0 12px 30px rgba(0,0,0,.12); }
   .col-6, .col-5, .col-7, .col-4, .col-8 { grid-column: span 12; }
 }
+
+/* Cookiebanner (Meta-pixel). Weigeren en aanvaarden even groot. */
+.gbh-tst { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 200; display: flex; justify-content: center; pointer-events: none; }
+.gbh-tst-in { pointer-events: auto; width: 100%; max-width: 560px; background: var(--color-creme); color: var(--color-inkt); border: 2px solid var(--color-groen); border-radius: 16px; padding: 20px 22px 18px; box-shadow: 0 14px 40px rgba(15, 36, 24, 0.25); }
+.gbh-tst-kop { font-family: var(--font-display); color: var(--color-groen); font-size: 1.25rem; margin: 0 0 6px; }
+.gbh-tst-tekst { font-size: 0.9rem; margin: 0 0 14px; line-height: 1.5; }
+.gbh-tst-tekst a { color: var(--color-groen); text-decoration: underline; }
+.gbh-tst-knoppen { display: flex; gap: 10px; }
+.gbh-tst-knop { flex: 1; border: 2px solid var(--color-groen); background: var(--color-groen); color: var(--color-creme); border-radius: 8px; padding: 10px 14px; font: inherit; font-size: 0.92rem; cursor: pointer; }
+.gbh-tst-weiger { background: transparent; color: var(--color-groen); }
+.gbh-cookie-knop { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; }
