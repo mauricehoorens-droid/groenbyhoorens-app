@@ -39,10 +39,10 @@ export const metadata: Metadata = {
     locale: "nl_BE",
     type: "website",
   },
-  /* Domeinverificatie voor Meta (bedrijfsportfolio Maurice Hoorens >
+  /* Domeinverificatie voor Meta (bedrijfsportfolio Groen By Hoorens >
      Merkveiligheid > Domeinen). Laten staan, anders vervalt de verificatie. */
   verification: {
-    other: { "facebook-domain-verification": "ivzalmrc7x9viv2slaooflxm3mzjw3" },
+    other: { "facebook-domain-verification": "q6gft3xva628bvahk48xs3ttb0uch6" },
   },
   icons: {
     icon: [

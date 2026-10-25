@@ -5,8 +5,8 @@
  * "Cookie-instellingen" onderaan elke pagina.
  * Vercel Web Analytics (bezoekersaantallen) gebruikt geen cookies.
  */
-/** Meta-pixel "Groen By Hoorens website pixel" (bedrijfsportfolio Maurice Hoorens). */
-export const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || "2700422093735278";
+/** Meta-pixel "Groen By Hoorens website pixel" (bedrijfsportfolio Groen By Hoorens). */
+export const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || "1823928535532971";
 
 export type Keuze = { marketing: boolean; datum: string };
 const SLEUTEL = "gbh_toestemming";
