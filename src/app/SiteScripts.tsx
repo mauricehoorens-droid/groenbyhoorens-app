@@ -26,9 +26,21 @@ const GBH = {
      'total' + 'rating' aanpassen. */
   seed: {
     rating: 5,
-    total: 3,
+    total: 5,
     mapsUri: 'https://maps.google.com/?cid=9432449784224368385',
     reviews: [
+      {
+        author: 'Geert De Wolf',
+        rating: 5,
+        when:   'november 2026',
+        text:   'Prettig werken met Maurice, komt stipt de afspraken na, weet uit zichzelf wat er moet gebeuren, is gemotiveerd, beleefd en heeft een sterke zin voor verantwoordelijkheid. Het werk ís bovendien erg netjes gedaan. Graag tot de volgende keer!'
+      },
+      {
+        author: 'Monique Liedts',
+        rating: 5,
+        when:   'oktober 2026',
+        text:   'Heel correcte en vriendelijke service. Snoeiwerken uitgevoerd. Heel tevreden over het werk, er wordt geen tijd verloren. Wij verwachten u terug in het voorjaar, d.w.z. wij zijn een tevreden klant.'
+      },
       {
         author: 'Matthias Dieltjens',
         rating: 5,
@@ -274,7 +286,6 @@ window.gbhInitReviews = function () {
         var r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
         if(!r.ok) throw new Error('fail');
         form.reset();
-        try{ (window as any).fbq && (window as any).fbq('track','Lead',{content_name:'contactformulier'}); }catch(_){}
         if(btn){btn.textContent='Verzonden ✓';}
       }catch(err){
         if(btn){btn.textContent='Er ging iets mis — mail me gerust';}
