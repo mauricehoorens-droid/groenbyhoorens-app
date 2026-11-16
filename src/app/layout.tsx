@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Toestemming from "@/components/Toestemming";
+import Schema from "@/components/Schema";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -25,19 +26,27 @@ const poppins = Poppins({
   display: "swap",
 });
 
+/* SEO (16 nov 2026): dienst + plaats vooraan in titel en beschrijving, want zo
+   zoeken mensen ("tuinman Brakel", "haag snoeien Zottegem"). Titel < ~60
+   tekens, beschrijving < ~160. Geen "aanplanting" meer: dat staat niet bij de
+   diensten. */
 export const metadata: Metadata = {
+  metadataBase: new URL("https://groenbyhoorens.be"),
+  alternates: { canonical: "/" },
   title: {
-    default: "Groen By Hoorens — tuinonderhoud, snoeiwerk & aanplanting",
+    default: "Tuinman Brakel & Zottegem · tuinonderhoud en snoeiwerk | Groen By Hoorens",
     template: "%s | Groen By Hoorens",
   },
   description:
-    "Professioneel tuinonderhoud in Brakel en omstreken. Onderhoud, snoeiwerk, borders en schors — met oog voor detail. Plan eenvoudig een afspraak online.",
+    "Tuinonderhoud, haag snoeien en schors leggen in Brakel, Zottegem, Lierde, Zwalm en omstreken. Altijd dezelfde tuinman, Maurice. Vrijblijvend een prijs na bezoek.",
   openGraph: {
-    title: "Groen By Hoorens",
-    description: "Professioneel tuinonderhoud in Brakel en omstreken.",
+    title: "Groen By Hoorens · tuinman in Brakel, Zottegem en omstreken",
+    description: "Tuinonderhoud, snoeiwerk en schors leggen in Oost-Vlaanderen. Altijd dezelfde vakman.",
     siteName: "Groen By Hoorens",
     locale: "nl_BE",
     type: "website",
+    url: "/",
+    images: [{ url: "/img/verzorgde-tuin-oost-vlaanderen-groen-by-hoorens.jpg" }],
   },
   /* Domeinverificatie voor Meta (bedrijfsportfolio Groen By Hoorens >
      Merkveiligheid > Domeinen). Laten staan, anders vervalt de verificatie. */
@@ -64,6 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <Analytics />
         <Toestemming />
+        <Schema />
       </body>
     </html>
   );

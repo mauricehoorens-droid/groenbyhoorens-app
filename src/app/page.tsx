@@ -3,11 +3,12 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import Reviews from "@/components/Reviews";
 import ContactForm from "@/components/ContactForm";
+import Vragen from "@/components/Vragen";
 
 const diensten = [
-  { num: "01", img: "/img/tuinonderhoud.jpg", alt: "Vers gemaaid gazon met maaisporen", titel: "Tuinonderhoud", desc: "Ik kom op vaste momenten langs: gras, kanten afsteken, wieden en wat er die maand nodig is. U hoeft er zelf niet meer aan te denken." },
-  { num: "02", img: "/img/snoeiwerk.jpg", alt: "Haag snoeien met de heggenschaar", titel: "Snoeiwerk", desc: "Hagen, struiken en kleiner houtwerk. Ik snoei in het seizoen dat de plant het aankan en neem het snoeisel mee, zodat u geen hoop takken overhoudt." },
-  { num: "03", img: "/img/borders.jpg", alt: "Verse laag boomschors klaar om te leggen", titel: "Schors leggen", desc: "Schors houdt onkruid tegen en de grond langer vochtig. Ik maak de bedden eerst proper en leg daarna een gelijke laag, tot netjes tegen de randen." },
+  { num: "01", img: "/img/tuinonderhoud-gazon-maaien-groen-by-hoorens.jpg", alt: "Vers gemaaid gazon met maaisporen", titel: "Tuinonderhoud", desc: "Ik kom op vaste momenten langs: gras, kanten afsteken, wieden en wat er die maand nodig is. U hoeft er zelf niet meer aan te denken." },
+  { num: "02", img: "/img/haag-snoeien-snoeiwerk-groen-by-hoorens.jpg", alt: "Haag snoeien met de heggenschaar", titel: "Snoeiwerk", desc: "Hagen, struiken en kleiner houtwerk. Ik snoei in het seizoen dat de plant het aankan en neem het snoeisel mee, zodat u geen hoop takken overhoudt." },
+  { num: "03", img: "/img/schors-leggen-borders-groen-by-hoorens.jpg", alt: "Verse laag boomschors klaar om te leggen", titel: "Schors leggen", desc: "Schors houdt onkruid tegen en de grond langer vochtig. Ik maak de bedden eerst proper en leg daarna een gelijke laag, tot netjes tegen de randen." },
 ];
 
 const redenen = [
@@ -24,11 +25,15 @@ export default function Home() {
     <>
       {/* HERO — minimalistisch, enkel logo gecentreerd */}
       <section className="hero hero-minimal">
-        <img className="hero-img" src="/img/hero.jpg" alt="Verzorgde tuin in Oost-Vlaanderen" />
+        <img className="hero-img" src="/img/verzorgde-tuin-oost-vlaanderen-groen-by-hoorens.jpg" alt="Verzorgde tuin in Oost-Vlaanderen, onderhouden door Groen By Hoorens" />
         <div className="hero-center">
           <Reveal style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <img className="hero-logo" src="/logo/logo-white.svg" alt="Groen By Hoorens" />
-            <p className="eyebrow" style={{ marginTop: 30, color: "#fff" }}>Professioneel tuinonderhoud in Oost-Vlaanderen</p>
+            {/* De enige h1 van de pagina: zegt Google en AI-assistenten meteen WAT en
+                WAAR (SEO, 16 nov 2026). Zelfde look als het oude onderschrift. */}
+            <h1 className="eyebrow" style={{ marginTop: 30, color: "#fff", fontFamily: "var(--font-sans)", lineHeight: 1.6 }}>
+              Tuinman in Brakel, Zottegem en omstreken
+            </h1>
           </Reveal>
         </div>
         <a href="#over" className="scroll-hint">Ontdek ↓</a>
@@ -75,7 +80,7 @@ export default function Home() {
       <section className="section" id="over">
         <div className="wrap split">
           <Reveal>
-            <img className="split-img split-tall" src="/img/over-mij.jpg" alt="Terras met loungezetels en aangelegde border" />
+            <img className="split-img split-tall" src="/img/terras-met-border-tuinonderhoud-oost-vlaanderen.jpg" alt="Terras met loungezetels en aangelegde border" />
           </Reveal>
           <Reveal delay={120}>
             <p className="eyebrow" style={{ marginBottom: 16 }}>Over mij</p>
@@ -91,7 +96,7 @@ export default function Home() {
 
       {/* FULL-BLEED beeld (luxe tussenbeeld) */}
       <section className="fullbleed" aria-hidden="true">
-        <img className="bg" src="/img/waarom.jpg" alt="Lange haag strak afgewerkt op hoogte" />
+        <img className="bg" src="/img/lange-haag-scheren-op-hoogte-groen-by-hoorens.jpg" alt="Lange haag strak afgewerkt op hoogte" />
       </section>
 
       {/* REDENEN — clean lijst op groen */}
@@ -123,14 +128,14 @@ export default function Home() {
             <h2 className="display-lg" style={{ color: "var(--color-groen)" }}>Werk van de voorbije maanden</h2>
           </Reveal>
           <Reveal className="gallery">
-            <div className="g-item col-7 ar-16-10"><img src="/img/galerij-1.jpg" alt="Strak aangelegd terras met siergrassen en geschoren hagen" loading="lazy" /></div>
-            <div className="g-item col-5 ar-16-10"><img src="/img/galerij-2.jpg" alt="Strak geschoren beukenhaag langs het gazon" loading="lazy" /></div>
-            <div className="g-item col-4 ar-1-1"><img src="/img/galerij-3.jpg" alt="Bloeiende borders langs een gemaaid gazon" loading="lazy" /></div>
-            <div className="g-item col-4 ar-1-1"><img src="/img/galerij-4.jpg" alt="Aanleg van een border naast het terras" loading="lazy" /></div>
-            <div className="g-item col-4 ar-1-1"><img src="/img/galerij-5.jpg" alt="Op hoogte gesnoeide haag in de avondzon" loading="lazy" /></div>
-            <div className="g-item col-6 ar-16-10"><img src="/img/galerij-8.jpg" alt="Strak gesnoeide bolboom" loading="lazy" /></div>
-            <div className="g-item col-6 ar-16-10"><img src="/img/galerij-9.jpg" alt="Paarden op de wei achter een pas geschoren haag" loading="lazy" /></div>
-            <div className="g-item col-12 ar-16-10"><img src="/img/galerij-10.jpg" alt="Luchtbeeld van het onderhouden domein" loading="lazy" /></div>
+            <div className="g-item col-7 ar-16-10"><img src="/img/terras-siergrassen-geschoren-hagen-tuinonderhoud.jpg" alt="Strak aangelegd terras met siergrassen en geschoren hagen" loading="lazy" /></div>
+            <div className="g-item col-5 ar-16-10"><img src="/img/beukenhaag-scheren-langs-gazon.jpg" alt="Strak geschoren beukenhaag langs het gazon" loading="lazy" /></div>
+            <div className="g-item col-4 ar-1-1"><img src="/img/bloeiende-borders-gemaaid-gazon.jpg" alt="Bloeiende borders langs een gemaaid gazon" loading="lazy" /></div>
+            <div className="g-item col-4 ar-1-1"><img src="/img/border-aanleggen-naast-terras.jpg" alt="Aanleg van een border naast het terras" loading="lazy" /></div>
+            <div className="g-item col-4 ar-1-1"><img src="/img/haag-snoeien-op-hoogte-avondzon.jpg" alt="Op hoogte gesnoeide haag in de avondzon" loading="lazy" /></div>
+            <div className="g-item col-6 ar-16-10"><img src="/img/bolboom-snoeien-groen-by-hoorens.jpg" alt="Strak gesnoeide bolboom" loading="lazy" /></div>
+            <div className="g-item col-6 ar-16-10"><img src="/img/haag-scheren-weide-paarden-oost-vlaanderen.jpg" alt="Paarden op de wei achter een pas geschoren haag" loading="lazy" /></div>
+            <div className="g-item col-12 ar-16-10"><img src="/img/luchtbeeld-onderhouden-domein-tuinonderhoud.jpg" alt="Luchtbeeld van het onderhouden domein" loading="lazy" /></div>
           </Reveal>
         </div>
       </section>
@@ -139,7 +144,7 @@ export default function Home() {
       <section className="section panel-groen">
         <div className="wrap split">
           <Reveal delay={120} style={{ order: 2 }}>
-            <img className="split-img split-tall" src="/img/werkgebied.jpg" alt="Luchtbeeld van een onderhouden domein in Oost-Vlaanderen" loading="lazy" />
+            <img className="split-img split-tall" src="/img/werkgebied-tuinman-brakel-zottegem-oost-vlaanderen.jpg" alt="Luchtbeeld van een onderhouden domein in Oost-Vlaanderen" loading="lazy" />
           </Reveal>
           <Reveal style={{ order: 1 }}>
             <p className="eyebrow" style={{ marginBottom: 16 }}>Waar ik actief ben</p>
@@ -158,6 +163,9 @@ export default function Home() {
 
       {/* REVIEWS */}
       <Reviews />
+
+      {/* VEELGESTELDE VRAGEN (AEO/GEO) */}
+      <Vragen />
 
       {/* CONTACT — donkergroen */}
       <section className="section panel-groen" id="contact">

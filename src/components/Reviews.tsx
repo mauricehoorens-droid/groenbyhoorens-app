@@ -2,7 +2,7 @@ import Reveal from "./Reveal";
 
 // Zelfde review-aanpak als de live site: vaste seed die meteen toont.
 // Nieuwe Google-reviews kun je hier onderaan de lijst toevoegen.
-const REVIEWS = [
+export const REVIEWS = [
   {
     author: "Matthias Dieltjens",
     rating: 5,
@@ -22,9 +22,9 @@ const REVIEWS = [
     text: "Heel beleefde jongen! Ik ben ook zeer tevreden over hoe mijn hagen geschoren zijn, en proper opgeruimd!! Chapeau voor deze jonge man.",
   },
 ];
-const RATING = 5.0;
-const TOTAL = 3;
-const MAPS_URL = "https://maps.google.com/?cid=9432449784224368385";
+export const RATING = 5.0;
+export const TOTAL = 3;
+export const MAPS_URL = "https://maps.google.com/?cid=9432449784224368385";
 const REVIEW_URL = "https://g.page/r/CQFHZ34ay-aCEBM/review";
 
 function Stars({ n }: { n: number }) {
