@@ -51,7 +51,11 @@ export const metadata: Metadata = {
   /* Domeinverificatie voor Meta (bedrijfsportfolio Groen By Hoorens >
      Merkveiligheid > Domeinen). Laten staan, anders vervalt de verificatie. */
   verification: {
-    other: { "facebook-domain-verification": "q6gft3xva628bvahk48xs3ttb0uch6" },
+    other: {
+      "facebook-domain-verification": "q6gft3xva628bvahk48xs3ttb0uch6",
+      /* Bing Webmaster Tools (ook de bron van ChatGPT-zoeken). Laten staan. */
+      "msvalidate.01": "97E50A7D974CD096280109601F44FA1C",
+    },
   },
   icons: {
     icon: [
