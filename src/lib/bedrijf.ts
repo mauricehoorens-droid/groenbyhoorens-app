@@ -4,7 +4,7 @@
  *  diensten), pas het HIER aan en vergeet llms.txt niet. */
 export const BEDRIJF = {
   naam: "Groen By Hoorens",
-  url: "https://groenbyhoorens.be",
+  url: "https://www.groenbyhoorens.be",
   eigenaar: "Maurice Hoorens",
   telefoon: "+32498439811",
   telefoonLeesbaar: "0498 43 98 11",

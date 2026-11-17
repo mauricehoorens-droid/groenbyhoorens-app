@@ -31,7 +31,7 @@ const poppins = Poppins({
    tekens, beschrijving < ~160. Geen "aanplanting" meer: dat staat niet bij de
    diensten. */
 export const metadata: Metadata = {
-  metadataBase: new URL("https://groenbyhoorens.be"),
+  metadataBase: new URL("https://www.groenbyhoorens.be"),
   alternates: { canonical: "/" },
   title: {
     default: "Tuinman Brakel & Zottegem · tuinonderhoud en snoeiwerk | Groen By Hoorens",
